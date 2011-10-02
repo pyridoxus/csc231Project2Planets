@@ -33,8 +33,12 @@ void Satellite::draw(float t)
 	//	glScalef( this->radius, this->radius, this->radius );	// add scaling to matrix
 		glRotatef( t * this->axisSpeed, 0, 0, 1 );		// rotate about axis
 		glColor3f( 1.0, 1.0, 1.0 );
-		if(this->radius < 1.0) glutWireSphere(this->radius, 10, 8);
-		else glutWireSphere(this->radius, 16, 12);
+		if(this->radius <= 0.25) glutWireSphere(this->radius, 8, 5);
+		else
+		{
+			if(this->radius < 1.0) glutWireSphere(this->radius, 10, 6);
+			else glutWireSphere(this->radius, 16, 12);
+		}
 	}
 //	glPopMatrix();										// discard effect of scaling, restore previous matrix
 //
